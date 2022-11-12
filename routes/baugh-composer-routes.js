@@ -13,7 +13,8 @@ const router = express.Router();
 
 // find all composers
 /* 
-OpenAPI 3.0.0 
+@openapi
+/api/composers:
    get:
       tags:
       - Composers
@@ -27,21 +28,32 @@ OpenAPI 3.0.0
       '501':
          description: MongoDB Exception
 */
-router.get('/composers', async (req, res, next) => {
+router.get('/composers', async (req, res) => {
 	try {
-		const composers = await Composer.find({});
-		res.json(composers);
-	} catch (err) {
-		console.log(err);
-		res.status(500).send('Server Exception');
-		res.status(501).send('MongoDB Exception');
+		Composer.find({}, function (err, composers) {
+			if (err) {
+				console.log(err);
+				res.status(501).send({
+					message: `MongoDB Exception: ${err}`,
+				});
+			} else {
+				console.log(composers);
+				res.json(composers);
+			}
+		});
+	} catch (e) {
+		console.log(e);
+		res.status(500).send({
+			message: `Server Exception: ${e.message}`,
+		});
 	}
 });
 
 // find one composer by id
 /*
-OpenAPI 3.0.0
-get:
+@openapi
+/api/composers/{id}:
+   get:
       tags: 
       - Composers
       summary: returns a composer document
@@ -61,26 +73,31 @@ get:
       '501':
          description: MongoDB Exception
 */
-router.get('/api/composers/:id', async (req, res, next) => {
+router.get('/composers/{:id}', async (req, res) => {
 	try {
-		const composer = await Composer.findOne({ _id: req.params.id });
-		if (!composer) {
-			console.log('Composer not found');
-			res.status(404).send('Composer not found');
-		} else {
-			console.log(composer);
-			res.json(composer);
-		}
-	} catch (err) {
-		console.log(err);
-		res.status(500).send('Server Exception');
-		res.status(501).send('MongoDB Exception');
+		Composer.findOne({ _id: req.params.id }, function (err, composer) {
+			if (err) {
+				console.log(err);
+				res.status(500).send({
+					message: `MongoDB Exception: ${err}`,
+				});
+			} else {
+				console.log(composer);
+				res.json(composer);
+			}
+		});
+	} catch (e) {
+		console.log(e);
+		res.status(500).send({
+			message: `Server Exception: ${e.message}`,
+		});
 	}
 });
 
 // create a new composer document
 /* 
-OpenAPI 3.0.0
+@openapi
+/api/composers:
    post:
       tags:
       - Composers
@@ -111,18 +128,27 @@ OpenAPI 3.0.0
       '501':
          description: MongoDB Exception
 */
-router.post('/api/composers', async (req, res, next) => {
+router.post('/composers', async (req, res) => {
 	try {
-		const composer = {
-			firstName: req.body.firstName,
-			lastName: req.body.lastName,
+		const newComposer = {
+			type: req.body.type,
 		};
 
-		await Composer.create(composer);
-		res.json(composer);
-	} catch (err) {
-		console.log(err);
-		res.status(500).send('Server Exception');
-		res.status(501).send('MongoDB Exception');
+		await Composer.create(newComposer, function (err, composer) {
+			if (err) {
+				console.log(err);
+				res.status(501).send({
+					message: `MongoDB Exception: ${err}`,
+				});
+			} else {
+				console.log(composer);
+				res.json(composer);
+			}
+		});
+	} catch (e) {
+		console.log(e);
+		res.status(500).send({
+			message: `Server Exception: ${e.message}`,
+		});
 	}
 });
