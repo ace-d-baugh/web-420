@@ -1,5 +1,5 @@
-#WEB 420 RESTful APIs
+# WEB 420 RESTful APIs
 
-##Contributors
+## Contributors
 - Professor Richard Krasso
 - Lord Ace Baugh
