@@ -109,7 +109,6 @@ router.get('/composers/{:id}', async (req, res) => {
  *      content:
  *        application/json:
  *          schema:
- *          type: object
  *            required:
  *              - firstName
  *              - lastName
