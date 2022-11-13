@@ -115,10 +115,8 @@ router.get('/composers/{:id}', async (req, res) => {
  *              - lastName
  *            properties:
  *              firstName:
- *                description: composer's first name
  *                type: string
  *              lastName:
- *                description: composer's last name
  *                type: string
  *     responses:
  *       '200':
@@ -131,7 +129,8 @@ router.get('/composers/{:id}', async (req, res) => {
 router.post('/composers', async (req, res) => {
 	try {
 		const newComposer = {
-			type: req.body.type,
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
 		};
 
 		await Composer.create(newComposer, function (err, composer) {
