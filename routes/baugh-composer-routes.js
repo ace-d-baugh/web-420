@@ -74,7 +74,7 @@ router.get('/composers', async (req, res) => {
  *       '501':
  *         description: MongoDB Exception
  */
-router.get('/composers/{:id}', async (req, res) => {
+router.get('/composers/:id', async (req, res) => {
 	try {
 		Composer.findOne({ _id: req.params.id }, function (err, composer) {
 			if (err) {
