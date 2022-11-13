@@ -6,11 +6,12 @@
 ============================================ */
 
 // Require statements
-const express = require("express");
-const http = require("http");
-const swaggerUi = require("swagger-ui-express");
-const swaggerJsdoc = require("swagger-jsdoc");
-const mongoose = require("mongoose");
+const express = require('express');
+const http = require('http');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
+const mongoose = require('mongoose');
+const composerApi = require('./routes/baugh-composer-routes');
 
 // App object
 const app = express();
@@ -24,30 +25,50 @@ app.use(express.json());
 // Use URL encoded
 app.use(express.urlencoded({ extended: true }));
 
+/**
+ * MongoDB Atlas connection string
+ */
+const conn = 'mongodb+srv://web420_user:s3cret@buwebdev-cluster-1.9wmv0d7.mongodb.net/test';
+mongoose
+	.connect(conn, {
+		promiseLibrary: require('bluebird'),
+		useUnifiedTopology: true,
+		useNewUrlParser: true,
+	})
+	.then(() => {
+		console.log(`Connection to web420DB on MongoDB Atlas successful`);
+	})
+	.catch((err) => {
+		console.log(`MongoDB Error: ${err.message}`);
+	});
+
 // Swagger options
 const options = {
-   definition: {
-      openapi: "3.0.0",
-      info: {
-         title: "Web 420 RESTFul APIs",
-         version: "1.0.0",
-      },
-   },
-   apis: ["./routes/*.js"],
+	definition: {
+		openapi: '3.0.0',
+		info: {
+			title: 'Web 420 RESTFul APIs',
+			version: '1.0.0',
+		},
+	},
+	apis: ['./routes/*.js'],
 };
 
 // Swagger specs
 const openapiSpecification = swaggerJsdoc(options);
 
 // Swagger UI
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 // Routes
-app.get("/", (req, res) => {
-   res.send("Welcome to the Web 420 RESTful APIs");
+//app.use('/api', composerApi);
+
+// Routes
+app.get('/', (req, res) => {
+	res.send('Welcome to the Web 420 RESTful APIs');
 });
 
 // Create server
 http.createServer(app).listen(port, () => {
-   console.log(`Application started and listening on port: ${port}`);
+	console.log(`Application started and listening on port: ${port}`);
 });

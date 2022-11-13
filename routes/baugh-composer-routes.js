@@ -29,6 +29,7 @@ const router = express.Router();
  *         description: MongoDB Exception.
  */
 router.get('/composers', async (req, res) => {
+         console.log('here');
 	try {
 		Composer.find({}, function (err, composers) {
 			if (err) {
