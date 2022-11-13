@@ -152,3 +152,5 @@ router.post('/composers', async (req, res) => {
 		});
 	}
 });
+
+module.exports = router;

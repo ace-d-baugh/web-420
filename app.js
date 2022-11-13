@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 /**
  * MongoDB Atlas connection string
  */
-const conn = 'mongodb+srv://web420_user:s3cret@buwebdev-cluster-1.9wmv0d7.mongodb.net/test';
+const conn = 'mongodb+srv://web420_user:s3cret@buwebdev-cluster-1.9wmv0d7.mongodb.net/web420DB?retryWrites=true&w=majority';
 mongoose
 	.connect(conn, {
 		promiseLibrary: require('bluebird'),
@@ -37,6 +37,7 @@ mongoose
 	})
 	.then(() => {
 		console.log(`Connection to web420DB on MongoDB Atlas successful`);
+		console.log('');
 	})
 	.catch((err) => {
 		console.log(`MongoDB Error: ${err.message}`);
@@ -61,7 +62,7 @@ const openapiSpecification = swaggerJsdoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 // Routes
-//app.use('/api', composerApi);
+app.use('/api', composerApi);
 
 // Routes
 app.get('/', (req, res) => {
