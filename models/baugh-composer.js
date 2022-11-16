@@ -1,7 +1,7 @@
 // Title: baugh-composer.js
 // Author: Ace Baugh
 // Date: November 10, 2022
-// Description: 
+// Description: MongoDB model for the Composer collection
 
 // require mongoose
 const mongoose = require('mongoose');

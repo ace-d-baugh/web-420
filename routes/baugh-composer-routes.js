@@ -1,7 +1,7 @@
 // Title: baugh-composer-routes.js
 // Author: Ace Baugh
 // Date: November 10, 2022
-// Description:
+// Description: API routes for the baugh-composer collection
 
 // require express
 const express = require('express');
@@ -29,7 +29,6 @@ const router = express.Router();
  *         description: MongoDB Exception.
  */
 router.get('/composers', async (req, res) => {
-         console.log('here');
 	try {
 		Composer.find({}, function (err, composers) {
 			if (err) {

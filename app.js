@@ -12,6 +12,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 const mongoose = require('mongoose');
 const composerApi = require('./routes/baugh-composer-routes');
+const personApi = require('./routes/baugh-person-routes');
 
 // App object
 const app = express();
@@ -63,6 +64,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 // Routes
 app.use('/api', composerApi);
+app.use('/api', personApi);
 
 // Routes
 app.get('/', (req, res) => {
