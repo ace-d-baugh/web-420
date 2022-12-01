@@ -12,15 +12,15 @@ const Schema = mongoose.Schema;
 const lineItemSchema = new Schema({
    name: { type: String },
    price: { type: Number },
-   quantity: { type: Number }
+   quantity: { type: Number },
 });
 
 const invoiceSchema = new Schema({
    subtotal: { type: Number },
    tax: { type: Number },
-   dateCreated: { type: string },
-   dateShipped: { type: string },
-   lineItems: [lineItemSchema]
+   dateCreated: { type: String },
+   dateShipped: { type: String },
+   lineItems: [lineItemSchema],
 });
 
 // Create a new schema for the customer collection
@@ -28,7 +28,7 @@ const customerSchema = new Schema({
    firstName: { type: String },
    lastName: { type: String },
    userName: { type: String },
-   invoices: [invoiceSchema]
+   invoices: [invoiceSchema],
 });
 
 // Export Customer
