@@ -102,9 +102,9 @@ router.post('/customers', async (req, res) => {
  *               - lineItems
  *             properties:
  *               subtotal:
- *                 type: string
+ *                 type: number
  *               tax:
- *                 type: string
+ *                 type: number
  *               dateCreated:
  *                 type: string
  *               dateShipped:
