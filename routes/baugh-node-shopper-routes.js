@@ -128,8 +128,7 @@ router.post('/customers', async (req, res) => {
  *       '501':
  *         description: MongoDB Exception
  */
-router.post('/customers/:username/invoices', async (req, res) => {
-	const user = req.params.username;
+router.post('/customers/:userName/invoices', async (req, res) => {
 	try {
 		Customer.findOne({ userName: user }, function (err, customer) {
 			// invoice variable
@@ -191,10 +190,10 @@ router.post('/customers/:username/invoices', async (req, res) => {
  *       '501':
  *         description: MongoDB Exception
  */
-router.get('/customers/:username/invoices', async (req, res) => {
+router.get('/customers/:userName/invoices', async (req, res) => {
 	try {
 		// mongodb query
-		Customer.findOne({ username: req.params.username }, function (err, customer) {
+		Customer.findOne({ userName: req.params.userName }, function (err, customer) {
 			if (err) {
 				// couldn't find the user
 				console.log(err);
