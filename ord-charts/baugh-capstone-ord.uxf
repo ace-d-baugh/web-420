@@ -1,0 +1,25 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>40</x><y>40</y><w>210</w><h>190</h></coordinates><panel_attributes>TEAM
+--
+-(PK) teamId: Long
+--
+-name (String)
+-(FK) mascotId (Long)
+-players (Array): from playerSchema</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>440</x><y>40</y><w>210</w><h>190</h></coordinates><panel_attributes>PLAYER
+--
+-(PK) playerId (Long)
+--
+-firstName (String)
+-lastName (String)
+-salary (Number)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>380</y><w>210</w><h>190</h></coordinates><panel_attributes>MASCOT
+--
+-(PK) mascotId (Long)
+--
+-name (String)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>130</y><w>220</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+can have &gt;</panel_attributes><additional_attributes>10;20;200;20</additional_attributes></element><element><id>Relation</id><coordinates><x>130</x><y>220</y><w>90</w><h>180</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..1
+can have &gt;</panel_attributes><additional_attributes>10;10;10;160</additional_attributes></element></diagram>
