@@ -15,6 +15,7 @@ const composerApi = require('./routes/baugh-composer-routes');
 const personApi = require('./routes/baugh-person-routes');
 const sessionApi = require('./routes/baugh-session-routes');
 const customerApi = require('./routes/baugh-node-shopper-routes');
+const teamsApi = require('./routes/baugh-teams-routes');
 
 // App object
 const app = express();
@@ -69,11 +70,17 @@ app.use('/api', composerApi);
 app.use('/api', customerApi);
 app.use('/api', personApi);
 app.use('/api', sessionApi);
+app.use('/api', teamsApi);
 
 // Routes
 app.get('/', (req, res) => {
 	res.send('Welcome to the Web 420 RESTful APIs');
 });
+
+app.get("*", (req, res) => {
+	res.redirect('/api-docs');
+});
+
 
 // Create server
 http.createServer(app).listen(port, () => {

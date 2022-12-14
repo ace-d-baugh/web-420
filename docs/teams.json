@@ -1,0 +1,106 @@
+[
+   {
+      "name": "Ice Ice Baby",
+      "mascot": "Ice Cube",
+      "players": [
+         {
+            "firstName": "Ice",
+            "lastName": "Cube",
+            "salary": 1000000
+         },
+         {
+            "firstName": "Vanilla",
+            "lastName": "Ice",
+            "salary": 1000000
+         },
+         {
+            "firstName": "DJ",
+            "lastName": "Jazzy Jeff",
+            "salary": 1000000
+         },
+         {
+            "firstName": "MC",
+            "lastName": "Shan",
+            "salary": 1000000
+         }
+      ]
+   },
+   {
+      "name": "The Heat",
+      "mascot": "Flame",
+      "players": [
+         {
+            "firstName": "Lebron",
+            "lastName": "James",
+            "salary": 1000000
+         },
+         {
+            "firstName": "Dwyane",
+            "lastName": "Wade",
+            "salary": 1000000
+         },
+         {
+            "firstName": "Chris",
+            "lastName": "Bosh",
+            "salary": 1000000
+         },
+         {
+            "firstName": "Udonis",
+            "lastName": "Haslem",
+            "salary": 1000000
+         }
+      ]
+   },
+   {
+      "name": "The Bulls",
+      "mascot": "Bull",
+      "players": [
+         {
+            "firstName": "Derrick",
+            "lastName": "Rose",
+            "salary": 1000000
+         },
+         {
+            "firstName": "Joakim",
+            "lastName": "Noah",
+            "salary": 1000000
+         },
+         {
+            "firstName": "Luol",
+            "lastName": "Deng",
+            "salary": 1000000
+         },
+         {
+            "firstName": "Carlos",
+            "lastName": "Boozer",
+            "salary": 1000000
+         }
+      ]
+   },
+   {
+      "name": "The Lakers",
+      "mascot": "A Ball",
+      "players": [
+         {
+            "firstName": "Kobe",
+            "lastName": "Bryant",
+            "salary": 1000000
+         },
+         {
+            "firstName": "Pau",
+            "lastName": "Gasol",
+            "salary": 1000000
+         },
+         {
+            "firstName": "Andrew",
+            "lastName": "Bynum",
+            "salary": 1000000
+         },
+         {
+            "firstName": "Ron",
+            "lastName": "Artest",
+            "salary": 1000000
+         }
+      ]
+   }
+]
