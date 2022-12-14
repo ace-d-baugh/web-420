@@ -78,7 +78,7 @@ app.get('/', (req, res) => {
 });
 
 app.get("*", (req, res) => {
-	res.redirect('/api-docs');
+	res.redirect('baugh-web-420.onrender.com/');
 });
 
 
